@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ember frissítése</title>
+</head>
+<body>
+<h2>Ember frissítése</h2>
+<form th:action="@{/emberek/frissit/{id}(id=${ember.id})}" th:object="${ember}" method="post">
+  Név: <input type="text" th:field="*{nev}"/><br>
+  Születési hely: <input type="text" th:field="*{szuletesiHely}"/><br>
+  Email: <input type="text" th:field="*{email}"/><br>
+  <input type="submit" value="Frissít"/>
+</form>
+</body>
+</html>

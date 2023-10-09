@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Emberek listája</title>
+</head>
+<body>
+<h2>Emberek</h2>
+<table>
+  <tr>
+    <th>Név</th>
+    <th>Születési hely</th>
+    <th>Email</th>
+    <th>Műveletek</th>
+  </tr>
+  <tr th:each="ember : ${emberek}">
+    <td th:text="${ember.nev}"></td>
+    <td th:text="${ember.szuletesiHely}"></td>
+    <td th:text="${ember.email}"></td>
+    <td>
+      <a th:href="@{'/emberek/frissit/' + ${ember.id}}">Frissít</a>
+    </td>
+  </tr>
+</table>
+<a href="/emberek/hozzaad">Új ember hozzáadása</a>
+</body>
+</html>
