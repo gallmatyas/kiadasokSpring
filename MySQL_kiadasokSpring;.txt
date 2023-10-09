@@ -1,0 +1,33 @@
+CREATE DATABASE kiadasokSpring;
+USE kiadasokSpring;
+
+CREATE TABLE emberek (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nev VARCHAR(200) NOT NULL,
+    szuletesi_hely VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE kiadasok (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hely VARCHAR(200) NOT NULL,
+    osszeg INT NOT NULL,
+    ember_id INT,
+    FOREIGN KEY (ember_id) REFERENCES emberek(id)
+);
+
+INSERT INTO emberek (nev, szuletesi_hely, email) VALUES
+('Gáll Mátyás', 'Nyíregyháza', 'gallmatyas@gmail.com'),
+('Máll Gátyás', 'Debrecen', 'mallgatyas@gmail.com'),
+('Gáll Gátyás', 'Budapest', 'gallgatyas@gmail.com'),
+('Máll Mátyás', 'Szeged', 'mallmatyas@gmail.com');
+
+INSERT INTO kiadasok (hely, osszeg, ember_id) VALUES
+('Dohánybolt', 2500, 1),
+('Burger King', 8000, 2),
+('Zara', 25000, 3),
+('Spar', 1800, 4),
+('Lidl', 1200, 1),
+('Tesco', 32000, 2),
+('Penny', 7000, 3),
+('Aldi', 4500, 4);
